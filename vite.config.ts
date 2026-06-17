@@ -5,11 +5,12 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
+      base: './', // Important for GitHub pages
       server: {
         port: 3000,
         host: '0.0.0.0',
       },
-      plugins: [],
+      plugins: [react()],
       resolve: {
         alias: {
           '@': path.resolve(__dirname, '.'),
